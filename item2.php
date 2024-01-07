@@ -1,6 +1,7 @@
 <?php
 // 載入db.php來連結資料庫
     include 'final_connect.php';
+    $StoreCode = $_GET['StoreCode'];
 ?>
 <html lang="zh-Hant-TW">
 <head>
@@ -18,9 +19,8 @@
     
 <nav>
     <ul>
-    <li><a  href="Home.php">Home</a></li>
-    <li><a href="item.php">物品</a></li>
-    <li><a href="item_edit.php">編輯物品</a></li>
+    <li><a  href="index2.php">Home</a></li>
+    <li><a href="shop.php">商城</a></li>
     <li style="position:absolute;left: 95%;"><a href="logout.php">登出</a></li>
     </ul>
 
@@ -48,9 +48,9 @@
     </tbody>-->
     <tbody>
     <?php    
-        $query = ("SELECT item.ItemID,item.Name,item.Price,item.Description,item.Suppliername, itemsupplier.Address,itemsupplier.Phone FROM item left join itemsupplier on item.Suppliername = itemsupplier.Name");
+        $query = ("SELECT item.ItemID,item.Name,item.Price,item.Description,item.Suppliername, itemsupplier.Address,itemsupplier.Phone FROM item left join itemsupplier on item.Suppliername = itemsupplier.Name where item.StoreCode = ?");
         $stmt =  $db->prepare($query);
-        $stmt->execute();
+        $stmt->execute(array($StoreCode));
         $result = $stmt->fetchAll();//以上寫法是為了防止「sql injection」
         for($i=0; $i<count($result); $i++){
             echo "<tr>";

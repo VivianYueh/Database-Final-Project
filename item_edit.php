@@ -8,20 +8,21 @@
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="./index.css">
-    <link rel="stylesheet" href="./item.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/item.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
-    <script src="item_edit.js"></script>
+    <script src="js/item_edit.js"></script>
 </head>
 <body>
        
 <nav>
     <ul>
-    <li><a href="index.php">Home</a></li>
+    <li><a href="Home.php">Home</a></li>
     <li><a href="item.php">物品</a></li>
     <li><a href="item_edit.php">編輯物品</a></li>
+    <li style="position:absolute;left: 95%;"><a href="logout.php">登出</a></li>
     <!--<li>
         <form method="post" action="item.php">
             Search
@@ -30,7 +31,7 @@
 		</form>
     </li>-->
     </ul>
-</nav>
+</nav><br>
 <form id="mfrom" method="post" action="item_edit.php">
 <div class="container1">
     <input type="hidden" id="ItemID" name="ItemID" value="<?php echo isset($_POST["ItemID"])?$_POST["ItemID"]:""?>">
@@ -60,9 +61,9 @@
         if(isset($_POST["ItemID"]) && !empty($_POST["ItemID"])){
             $ItemID=$_POST["ItemID"];
             echo '<tr style="border-bottom:white"><td><button onclick="UpdateItem()">我要更改</button></td>';
-            $query = ("SELECT item.ItemID,item.Name,item.Price,item.Description,item.Suppliername, itemsupplier.Address,itemsupplier.Phone FROM item left join itemsupplier on item.Suppliername = itemsupplier.Name where ItemID = ?");
+            $query = ("SELECT item.ItemID,item.Name,item.Price,item.Description,item.Suppliername, itemsupplier.Address,itemsupplier.Phone FROM item left join itemsupplier on item.Suppliername = itemsupplier.Name where ItemID = ? and item.StoreCode = ?");
             $stmt =  $db->prepare($query);
-            $stmt->execute(array($ItemID));
+            $stmt->execute(array($ItemID,$_SESSION['StoreCode']));
             $result = $stmt->fetchAll();//以上寫法是為了防止「sql injection」
             for($i=0; $i<count($result); $i++){
                 //echo '<td rowspan="2">'.$result[$i]['ItemID'].'</td>';
