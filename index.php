@@ -33,7 +33,7 @@
 			<!--<div class="carousel-caption" style="color: black;">标题 1</div>-->
 		</div>
 		<div class="item">
-			<img src="img/src1.jpg" alt="Second slide" >
+			<img src="img/src2.jpg" alt="Second slide" >
 			<!--<div class="carousel-caption" style="color: black;">标题 2</div>-->
 		</div>
 		<div class="item">
