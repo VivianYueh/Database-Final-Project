@@ -1,6 +1,6 @@
 .container1{
     overflow:hidden;
-
+    border-radius:10px 10px 0px 0px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
   }
   
@@ -25,14 +25,9 @@
     text-align:center;
   }
   
-  tr{
-    border-bottom: 1px solid #dddddd;
-  }
+
   
   tr:last-of-type{
     border-bottom: 2px solid #009879;
   }
   
-  tr:nth-of-type(even) td{
-    background-color:#f3f3f3;
-  }

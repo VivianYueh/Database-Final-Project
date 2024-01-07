@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+<?php
+// 載入db.php來連結資料庫
+    include 'final_connect.php';
+?>
 <html lang="zh-Hant-TW">
 <head>
     <meta charset="UTF-8">
@@ -29,17 +32,38 @@
             <th>物品</th>
             <th>價錢</th>
             <th>物品敘述</th>
+            <th>供應商</th>
+            <th>供應商電話</th>
+            <th>供應商地址</th>
         </tr>
     </thead>
-    <tbody>
+    <!--<tbody>
         <tr>
             <td>1</td>
             <td>馬克杯</td>
             <td>100</td>
             <td>大象圖案的白色馬克杯</td>
         </tr>
+    </tbody>-->
+    <tbody>
+    <?php    
+        $query = ("SELECT item.ItemID,item.Name,item.Price,item.Description,item.Suppliername, itemsupplier.Address,itemsupplier.Phone FROM item left join itemsupplier on item.Suppliername = itemsupplier.Name");
+        $stmt =  $db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->fetchAll();//以上寫法是為了防止「sql injection」
+        for($i=0; $i<count($result); $i++){
+            echo "<tr>";
+            echo "<td>".$result[$i]['ItemID'].'</td>';
+            echo '<td>'.$result[$i]['Name'].'</td>';
+            echo '<td>'.$result[$i]['Price'].'</td>';
+            echo '<td>'.$result[$i]['Description'].'</td>';
+            echo '<td>'.$result[$i]['Suppliername'].'</td>';
+            echo '<td>'.$result[$i]['Address'].'</td>';
+            echo '<td>'.$result[$i]['Phone'].'</td>';
+            echo '</tr>';
+        }
+    ?>
     </tbody>
-    
 </table>
 </div>
 
