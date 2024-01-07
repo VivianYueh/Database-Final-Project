@@ -36,3 +36,40 @@
   tr:nth-of-type(even) td{
     background-color:#f3f3f3;
   }
+  #logout{
+    float: right;
+}
+
+@media screen and (min-width: 491px) and (max-width: 768px){
+  ul.sidenav {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  
+  ul.sidenav li a {
+    float: left;
+    padding: 15px;
+  }
+  
+  #logout{
+    float: right;
+}
+}
+@media screen and (min-width: 0px) and (max-width: 490px){
+
+  ul.sidenav {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  
+  ul.sidenav li a {
+    float: left;
+    padding: 15px;
+  }
+  
+  #logout{
+    float: right;
+}
+}
