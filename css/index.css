@@ -47,3 +47,55 @@ ul {
         width:25vw;
         height:200px;
       }
+      #logout{
+        float: right;
+    }
+    @media screen and (min-width: 769px) and (max-width: 1000px){
+        ul.sidenav {
+          width: 100%;
+          height: auto;
+          position: relative;
+        }
+        
+        ul.sidenav li a {
+          float: left;
+          padding: 15px;
+        }
+        
+        #logout{
+          float: right;
+      }
+      }
+      @media screen and (min-width: 491px) and (max-width: 768px){
+        ul.sidenav {
+          width: 100%;
+          height: auto;
+          position: relative;
+        }
+        
+        ul.sidenav li a {
+          float: left;
+          padding: 15px;
+        }
+        
+        #logout{
+          float: right;
+      }
+      }
+      @media screen and (min-width: 0px) and (max-width: 490px){
+      
+        ul.sidenav {
+          width: 100%;
+          height: auto;
+          position: relative;
+        }
+        
+        ul.sidenav li a {
+          float: left;
+          padding: 15px;
+        }
+        
+        #logout{
+          float: right;
+      }
+      }

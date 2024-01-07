@@ -1,4 +1,5 @@
 <?php
+session_start();
 	include 'final_connect.php';
 	
 	if (isset($_POST["ItemID"]))

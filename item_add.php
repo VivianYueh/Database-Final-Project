@@ -18,6 +18,7 @@
     <li><a  href="index.php">Home</a></li>
     <li><a href="item.php">物品</a></li>
     <li><a href="item_edit.php">編輯物品</a></li>
+    <li id="logout"><a href="logout.php">登出</a></li>
     </ul>
 
 </nav>

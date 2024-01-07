@@ -64,7 +64,7 @@
   
   #container2{
     visibility: hidden;   /*剛開始消失*/
-    height: 350px;
+    height: 420px;
   }
   
   #reg_container{
@@ -84,3 +84,68 @@
     border:solid 1px #ccc;
     border-radius: 5px;
   }
+  @media only screen and (min-width: 376px) and (max-width: 990px){
+    #username, #password, h3, #fullname, #comfirm_password,#username2, #password2{
+      width: 90%;
+      height: 100px;
+      margin: 40px;
+      color: #df5334;
+      font-size: 40px;
+    }
+    #container1, #container2,#reg_container{
+      margin: 200px;
+      padding: 40px;
+      width: 90%;
+      height: 100%;
+      background-color: white;
+      border-radius: 20px;
+      border-top: 80px solid #df5334;
+      box-shadow: 0 0px 280px rgba(0, 0, 0, 0.1);
+      
+      /*定位對齊*/
+      position:relative;   
+      margin: auto;
+      top: 100px;
+      text-align:center;  
+    }
+    .system_name{
+      /*定位對齊*/
+      position:relative;   
+      margin: auto;
+      top: 100px;
+      text-align:center; 
+    }
+    
+    .submit{
+      color: white;  
+      background: #df5334;
+      width: 400px;
+      height: 65px;
+      margin: 10px;
+      padding: 5px;
+      border-radius: 10px;
+      border: 0px;
+      font-size: 40px;
+    }
+    #radio1,#radio2{
+      width: 25px;
+      height: 25px;
+    }
+    .mer,.cus{
+      font-size: 40px;
+    }
+    #username::-webkit-input-placeholder{
+      font-size: 40px;
+    }
+
+    #password::-webkit-input-placeholder{
+      font-size: 40px;
+    }
+    .log_reg{
+      font-size: 40px;
+    }
+    .title{
+      font-size: 60px;
+    }
+
+}

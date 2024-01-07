@@ -1,5 +1,6 @@
 <?php
 // 載入db.php來連結資料庫
+session_start();
     include 'final_connect.php';
 ?>
 <html lang="zh-Hant-TW">
@@ -11,11 +12,11 @@
     <link rel="stylesheet" href="css/reg.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
-    <script src="js/login.js"></script>
+    <script src="js/reg.js"></script>
     <script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
 </head>
 <body>
-    <form id="mlogin" method="post" action="account_reg.php">
+    <form id="mreg" method="post" action="account_reg.php">
     <div class="signup_page">
       <div id="container4">
 
@@ -25,9 +26,9 @@
 
           <form action="account_reg.php">
             <input type="radio" id="radio1" name="radio" value="顧客" onclick="choose1()" checked/>
-            <label for="radio">顧客</label>
+            <label for="radio" class="cus">顧客</label>
             <input type="radio" id="radio2" name="radio" value="商家" onclick="choose2()"/>
-            <label for="radio">商家</label>
+            <label for="radio" class="cus">商家</label>
             <div class="tab"></div>
             <input type="text" id="username2" name="username" placeholder="帳號" required>
             <div class="tab"></div>
@@ -36,6 +37,10 @@
             <input type="password" id="comfirm_password" name="comfirm_password" placeholder="確認密碼" required>
             <div class="tab"></div>
             <input class="Store" type="text" id="Store" name="Store" placeholder="商店名稱" hidden>
+            <div class="tab"></div> 
+            <input class="Store" type="text" id="StoreDes" name="StoreDes" placeholder="商店敘述" hidden>
+            <div class="tab"></div> 
+            <input class="Store" type="text" id="StoreTime" name="StoreTime" placeholder="服務時間" hidden>
             <div class="tab"></div>                        
             <input type="submit" value="註冊" class="submit" onclick="Reg()">
           </form>  

@@ -1,4 +1,5 @@
 <?php
+  session_start();
   include 'final_connect.php';
   $item_name = $_POST["item_name"];
   $item_price= $_POST["item_price"];
@@ -13,17 +14,15 @@
   try{
     if($stmt = $db->prepare($sql)){
         $success = $stmt->execute(array($item_sup,$item_addr,$item_ph));
-        
-        
         if (!$success) {
           echo "儲存失敗!".$stmt->errorInfo();
         }else{
             $ItemID = $db->lastInsertId();
-          header('Location: item_edit.php');
+            header('Location: item_edit.php');
         }
-        $sql = "INSERT INTO item (ItemID,StoreCode,Name,Price,Description,Suppliername) values (NULL,'AngelLin',?,?,?,?)";
+        $sql = "INSERT INTO item (ItemID,StoreCode,Name,Price,Description,Suppliername) values (NULL,?,?,?,?,?)";
         if($stmt = $db->prepare($sql)){
-        $success = $stmt->execute(array($item_name, $item_price, $item_des,$item_sup));
+        $success = $stmt->execute(array($_SESSION['StoreCode'],$item_name, $item_price, $item_des,$item_sup));
         
         if (!$success) {
           echo "儲存失敗!".$stmt->errorInfo();

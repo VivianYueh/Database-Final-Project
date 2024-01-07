@@ -30,4 +30,40 @@
   tr:last-of-type{
     border-bottom: 2px solid #009879;
   }
+  #logout{
+    float: right;
+}
+
+@media screen and (min-width: 491px) and (max-width: 768px){
+  ul.sidenav {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
   
+  ul.sidenav li a {
+    float: left;
+    padding: 15px;
+  }
+  
+  #logout{
+    float: right;
+}
+}
+@media screen and (min-width: 0px) and (max-width: 490px){
+
+  ul.sidenav {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  
+  ul.sidenav li a {
+    float: left;
+    padding: 15px;
+  }
+  
+  #logout{
+    float: right;
+}
+}

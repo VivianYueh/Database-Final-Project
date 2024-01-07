@@ -11,19 +11,20 @@
 	  try{
         if($stmt = $db->prepare($sql)){
             $success = $stmt->execute(array($username,$password,$idt));
+            $result = $stmt->fetchAll();//以上寫法是為了防止「sql injection」
             if (!$success) {
-                $_SESSION['is_login'] = FALSE;
+                $_SESSION["is_login"] = FALSE;
                 echo "登入失敗!".$stmt->errorInfo();
             }else{
                 $_SESSION['is_login'] = TRUE;
                 $_SESSION['account'] = $username;
                 $_SESSION['identity'] = $idt;
                 if($idt=="商家"){
-                    $query = ("SELECT StoreCode FROM user where Name = ? and Password = ? and Identity = ?");
-                    $stmt =  $db->prepare($query);
-                    $stmt->execute(array($username,$password,$idt));
-                    $result = $stmt->fetchAll();//以上寫法是為了防止「sql injection」
-                    $_SESSION['StoreCode'] = $result['StoreCode'];
+                    
+                    $Store=$result[0]['StoreCode'];
+                    
+                    $_SESSION['StoreCode'] = $Store;
+
                     header('Location: Home.php');
                 }
                 else{

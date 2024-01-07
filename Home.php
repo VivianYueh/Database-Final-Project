@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<?php
+// 載入db.php來連結資料庫
+    session_start();
+    include 'final_connect.php';
+?>
 <html lang="zh-Hant-TW">
 <head>
     <meta charset="UTF-8">
@@ -10,12 +14,12 @@
 <body>
     
     
-<nav>
+<nav class="sidenav">
     <ul>
     <li><a  href="Home.php">Home</a></li>
     <li><a href="item.php">物品</a></li>
     <li><a href="item_edit.php">編輯物品</a></li>
-	<li style="position:absolute;left: 95%;"><a href="logout.php">登出</a></li>
+	<li id="logout"><a href="logout.php">登出</a></li>
     </ul>
 
 </nav>

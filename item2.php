@@ -1,7 +1,8 @@
 <?php
 // 載入db.php來連結資料庫
+    session_start();
     include 'final_connect.php';
-    $StoreCode = $_GET['StoreCode'];
+    $StoreCode=$_GET['StoreCode'];
 ?>
 <html lang="zh-Hant-TW">
 <head>
@@ -21,7 +22,7 @@
     <ul>
     <li><a  href="index2.php">Home</a></li>
     <li><a href="shop.php">商城</a></li>
-    <li style="position:absolute;left: 95%;"><a href="logout.php">登出</a></li>
+    <li id="logout"><a href="logout.php">登出</a></li>
     </ul>
 
 </nav><br>
